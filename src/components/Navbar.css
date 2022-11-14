@@ -1,0 +1,7 @@
+a {
+  all: unset;
+}
+
+.active {
+  text-decoration: underline;
+}
