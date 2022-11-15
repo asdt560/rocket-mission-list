@@ -15,9 +15,12 @@ const getMissions = createAsyncThunk('missions/GetMissions', async () => {
       mission_id: mission.mission_id,
       mission_name: mission.mission_name,
       description: mission.description,
+      wikipedia: mission.wikipedia,
+      joined: false,
     };
     missions.push(object);
   });
+  console.log(missions);
   return missions;
 });
 
@@ -27,6 +30,15 @@ const missionsSlice = createSlice({
     loading: false,
     missions: [],
     error: '',
+  },
+  reducers: {
+    changeMissionStatus(state, action) {
+      state.missions.forEach((mission) => {
+        if (mission.mission_id === action.payload) {
+          mission.joined = !mission.joined;
+        }
+      });
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getMissions.pending, (state) => {
@@ -46,3 +58,4 @@ const missionsSlice = createSlice({
 
 export default missionsSlice.reducer;
 export { getMissions };
+export const { changeMissionStatus } = missionsSlice.actions;
