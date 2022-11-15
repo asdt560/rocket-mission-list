@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMissions } from '../redux/missions/missionsslice';
+import { getMissions, changeMissionStatus } from '../redux/missions/missionsslice';
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -8,6 +8,9 @@ const Missions = () => {
   if (missions.length === 0) {
     dispatch(getMissions());
   }
+  const handleClick = (mission) => {
+    dispatch(changeMissionStatus(mission));
+  };
   return (
     <table>
       <thead>
@@ -29,8 +32,17 @@ const Missions = () => {
             <th>
               {mission.description}
             </th>
-            <th>Status</th>
-            <th>Empty</th>
+            <th>
+              {mission.joined ? 'Active Member' : 'NOT A MEMBER'}
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => { handleClick(mission.mission_id); }}
+              >
+                {mission.joined ? 'Leave Mission' : 'Join Mission'}
+              </button>
+            </th>
           </tr>
         </tbody>
       ))}
