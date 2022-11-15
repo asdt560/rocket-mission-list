@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Rocket.css';
+
 const Rocket = (props) => {
   const {
     id, name, description, images,
@@ -14,10 +16,12 @@ const Rocket = (props) => {
   };
 
   return (
-    <li id={id}>
-      <img src={images[0]} alt={name} style={{ height: 100, width: 100 }} />
-      <h3>{name}</h3>
-      <p>{description}</p>
+    <li id={id} className="rocket-container">
+      <img src={images[0]} alt={name} style={{ height: 200 }} />
+      <div className="rocket-info">
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </div>
     </li>
   );
 };

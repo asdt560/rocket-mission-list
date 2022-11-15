@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import Rocket from '../components/Rocket';
 import { getRockets } from '../redux/rockets/rocketsSlice';
+import './Rockets.css';
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -9,24 +11,21 @@ const Rockets = () => {
 
   useEffect(() => {
     dispatch(getRockets());
-  }, []);
+  }, [dispatch]);
 
-  console.log(rockets);
-  const test = rockets[0];
-  console.log(test);
-
-  const rend = (
+  const rocketList = rockets.map((rocket) => (
     <Rocket
-      key={test.id}
-      name={test.name}
-      description={test.description}
-      images={test.images}
+      key={rocket.id}
+      id={rocket.id}
+      name={rocket.name}
+      description={rocket.description}
+      images={rocket.images}
     />
-  );
+  ));
 
   return (
-    <ul>
-      {rend}
+    <ul className="rockets-container">
+      {rocketList}
     </ul>
   );
 };

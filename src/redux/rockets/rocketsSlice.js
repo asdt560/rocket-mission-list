@@ -10,7 +10,6 @@ const getRockets = createAsyncThunk('rockets/GetRockets', async () => {
     description: rocket.description,
     images: rocket.flickr_images,
   }));
-  console.log(rockets);
   return rockets;
 });
 
@@ -28,7 +27,6 @@ const rocketsSlice = createSlice({
     builder.addCase(getRockets.fulfilled, (state, action) => {
       state.loading = false;
       state.rockets = action.payload;
-      console.log(action.payload);
     });
     builder.addCase(getRockets.rejected, (state, action) => {
       state.loading = false;
