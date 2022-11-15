@@ -3,7 +3,7 @@ a {
 }
 
 header,
-ul {
+.navbar-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
-ul {
+.navbar-links {
   gap: 2rem;
 }
 
