@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
+import { changeRocketStatus } from '../redux/rockets/rocketsSlice';
 import './Rocket.css';
 
 const Rocket = (props) => {
   const {
-    id, name, description, images,
+    id, name, description, images, reserved,
   } = props;
 
   Rocket.propTypes = {
@@ -13,6 +15,13 @@ const Rocket = (props) => {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    reserved: PropTypes.bool.isRequired,
+  };
+
+  const dispatch = useDispatch();
+
+  const handleChangeStatus = () => {
+    dispatch(changeRocketStatus(id));
   };
 
   return (
@@ -21,6 +30,7 @@ const Rocket = (props) => {
       <div className="rocket-info">
         <h3>{name}</h3>
         <p>{description}</p>
+        <button type="button" onClick={handleChangeStatus}>{ reserved ? 'Cancel Reservation' : 'Reserve Rocket'}</button>
       </div>
     </li>
   );
