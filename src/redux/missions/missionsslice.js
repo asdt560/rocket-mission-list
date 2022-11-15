@@ -4,13 +4,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const getMissionData = async () => {
   const response = await fetch('https://api.spacexdata.com/v3/missions');
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
 const getMissions = createAsyncThunk('missions/GetMissions', async () => {
   const missiondata = await getMissionData().then((data) => data);
-  console.log(missiondata);
   const missions = [];
   missiondata.forEach((mission) => {
     const object = {
@@ -20,7 +18,6 @@ const getMissions = createAsyncThunk('missions/GetMissions', async () => {
     };
     missions.push(object);
   });
-  console.log(missions);
   return missions;
 });
 

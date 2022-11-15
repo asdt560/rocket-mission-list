@@ -6,9 +6,7 @@ const Missions = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.reducer.missions);
   if (missions.length === 0) {
-    setTimeout(() => {
-      dispatch(getMissions());
-    }, '1000');
+    dispatch(getMissions());
   }
   return (
     <table>
