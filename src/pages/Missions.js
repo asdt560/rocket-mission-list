@@ -33,14 +33,14 @@ const Missions = () => {
               {mission.description}
             </th>
             <th>
-              {mission.joined ? 'Active Member' : 'NOT A MEMBER'}
+              {mission.reserved ? 'Active Member' : 'NOT A MEMBER'}
             </th>
             <th>
               <button
                 type="button"
                 onClick={() => { handleClick(mission.mission_id); }}
               >
-                {mission.joined ? 'Leave Mission' : 'Join Mission'}
+                {mission.reserved ? 'Leave Mission' : 'Join Mission'}
               </button>
             </th>
           </tr>

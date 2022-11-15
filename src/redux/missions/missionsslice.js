@@ -16,7 +16,7 @@ const getMissions = createAsyncThunk('missions/GetMissions', async () => {
       mission_name: mission.mission_name,
       description: mission.description,
       wikipedia: mission.wikipedia,
-      joined: false,
+      reserved: false,
     };
     missions.push(object);
   });
@@ -35,7 +35,7 @@ const missionsSlice = createSlice({
     changeMissionStatus(state, action) {
       state.missions.forEach((mission) => {
         if (mission.mission_id === action.payload) {
-          mission.joined = !mission.joined;
+          mission.reserved = !mission.reserved;
         }
       });
     },
