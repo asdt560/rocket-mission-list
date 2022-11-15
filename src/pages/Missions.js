@@ -1,5 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import { getMissions, changeMissionStatus } from '../redux/missions/missionsslice';
 
 const Missions = () => {
@@ -12,7 +15,7 @@ const Missions = () => {
     dispatch(changeMissionStatus(mission));
   };
   return (
-    <table>
+    <Table bordered hover>
       <thead>
         <tr>
           <th>Mission</th>
@@ -26,27 +29,30 @@ const Missions = () => {
           key={mission.mission_id}
         >
           <tr>
-            <th>
+            <th className="missionname">
               {mission.mission_name}
             </th>
-            <th>
+            <th className="missiondescription">
               {mission.description}
             </th>
-            <th>
-              {mission.joined ? 'Active Member' : 'NOT A MEMBER'}
+            <th className="missionstatus">
+              {mission.reserved
+                ? <Badge bg="primary">Active Member</Badge>
+                : <Badge bg="secondary">NOT A MEMBER</Badge>}
             </th>
-            <th>
-              <button
+            <th className="missionreserve">
+              <Button
+                variant={mission.reserved ? 'outline-danger' : 'outline-dark'}
                 type="button"
                 onClick={() => { handleClick(mission.mission_id); }}
               >
-                {mission.joined ? 'Leave Mission' : 'Join Mission'}
-              </button>
+                {mission.reserved ? 'Leave Mission' : 'Join Mission'}
+              </Button>
             </th>
           </tr>
         </tbody>
       ))}
-    </table>
+    </Table>
   );
 };
 

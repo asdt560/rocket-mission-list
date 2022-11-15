@@ -1,26 +1,15 @@
-/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const getMissionData = async () => {
+const getMissions = createAsyncThunk('missions/GetMissions', async () => {
   const response = await fetch('https://api.spacexdata.com/v3/missions');
   const data = await response.json();
-  return data;
-};
-
-const getMissions = createAsyncThunk('missions/GetMissions', async () => {
-  const missiondata = await getMissionData().then((data) => data);
-  const missions = [];
-  missiondata.forEach((mission) => {
-    const object = {
-      mission_id: mission.mission_id,
-      mission_name: mission.mission_name,
-      description: mission.description,
-      wikipedia: mission.wikipedia,
-      joined: false,
-    };
-    missions.push(object);
-  });
-  console.log(missions);
+  const missions = data.map((mission) => ({
+    mission_id: mission.mission_id,
+    mission_name: mission.mission_name,
+    description: mission.description,
+    wikipedia: mission.wikipedia,
+    reserved: false,
+  }));
   return missions;
 });
 
@@ -33,26 +22,38 @@ const missionsSlice = createSlice({
   },
   reducers: {
     changeMissionStatus(state, action) {
-      state.missions.forEach((mission) => {
-        if (mission.mission_id === action.payload) {
-          mission.joined = !mission.joined;
+      const newState = state.missions.map((mission) => {
+        const previous = mission.reserved;
+        if (mission.mission_id !== action.payload) {
+          return mission;
         }
+        return {
+          ...mission,
+          reserved: !previous,
+        };
       });
+      return {
+        ...state,
+        missions: newState,
+      };
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getMissions.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(getMissions.fulfilled, (state, action) => {
-      state.loading = false;
-      state.missions = action.payload;
-    });
-    builder.addCase(getMissions.rejected, (state, action) => {
-      state.loading = false;
-      state.missions = [];
-      state.error = action.error.message;
-    });
+    builder.addCase(getMissions.pending, (state) => ({
+      ...state,
+      loading: true,
+    }));
+    builder.addCase(getMissions.fulfilled, (state, action) => ({
+      ...state,
+      loading: false,
+      missions: action.payload,
+    }));
+    builder.addCase(getMissions.rejected, (state, action) => ({
+      ...state,
+      loading: false,
+      missions: [],
+      error: action.error.message,
+    }));
   },
 });
 

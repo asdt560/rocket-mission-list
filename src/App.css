@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.missionname {
+  max-width: 5vw;
+}
+
+.missiondescription {
+  font-size: 15px;
+  font-weight: 500;
+  max-width: 40vw;
+  text-align: left;
+}
+
+.missionreserve,
+.missionstatus {
+  display: table-cell;
+  vertical-align: middle;
+  width: 10vw;
+}
