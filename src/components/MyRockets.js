@@ -7,7 +7,10 @@ const MyRockets = () => {
   const rockets = useSelector((state) => state.rocketsReducer.rockets);
   const activeRockets = rockets.filter((rocket) => rocket.reserved === true);
   const reservedRockets = activeRockets.map((rocket) => (
-    <li key={rocket.id}>
+    <li
+      className="profilesquare"
+      key={rocket.id}
+    >
       {rocket.name}
     </li>
   ));
