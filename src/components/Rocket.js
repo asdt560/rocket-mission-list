@@ -29,7 +29,12 @@ const Rocket = (props) => {
       <img src={images[0]} alt={name} style={{ height: 200 }} />
       <div className="rocket-info">
         <h3>{name}</h3>
-        <p>{description}</p>
+        <div className="rocket-description">
+          <p>
+            <span style={{ backgroundColor: 'blue' }}>{ reserved && 'Reserved' }</span>
+            {description}
+          </p>
+        </div>
         <button type="button" onClick={handleChangeStatus}>{ reserved ? 'Cancel Reservation' : 'Reserve Rocket'}</button>
       </div>
     </li>
