@@ -33,7 +33,9 @@ const Missions = () => {
               {mission.mission_name}
             </th>
             <th className="missiondescription">
-              {mission.description}
+              <p>
+                {mission.description}
+              </p>
             </th>
             <th className="missionstatus">
               {mission.reserved
