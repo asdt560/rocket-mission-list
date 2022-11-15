@@ -1,56 +1,42 @@
-// import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+/* eslint-disable no-param-reassign */
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const getRockets = async () => {
+const getRockets = createAsyncThunk('rockets/GetRockets', async () => {
   const response = await fetch('https://api.spacexdata.com/v3/rockets');
   const data = await response.json();
   const rockets = data.map((rocket) => ({
     id: rocket.id,
     name: rocket.rocket_name,
     description: rocket.description,
-    flickr_images: rocket.flickr_images,
+    images: rocket.flickr_images,
   }));
   console.log(rockets);
   return rockets;
-};
+});
 
-export default getRockets;
+const rocketsSlice = createSlice({
+  name: 'rockets',
+  initialState: {
+    loading: false,
+    rockets: [],
+    error: '',
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getRockets.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getRockets.fulfilled, (state, action) => {
+      state.loading = false;
+      state.rockets = action.payload;
+      console.log(action.payload);
+    });
+    builder.addCase(getRockets.rejected, (state, action) => {
+      state.loading = false;
+      state.rockets = [];
+      state.error = action.error.message;
+    });
+  },
+});
 
-// const getMissions = createAsyncThunk('missions/GetMissions', async () => {
-//   const missiondata = await getMissionData().then((data) => data);
-//   const missions = [];
-//   missiondata.forEach((mission) => {
-//     const object = {
-//       mission_id: mission.mission_id,
-//       mission_name: mission.mission_name,
-//       description: mission.description,
-//     };
-//     missions.push(object);
-//   });
-//   return missions;
-// });
-
-// const missionsSlice = createSlice({
-//   name: 'missions',
-//   initialState: {
-//     loading: false,
-//     missions: [],
-//     error: '',
-//   },
-//   extraReducers: (builder) => {
-//     builder.addCase(getMissions.pending, (state) => {
-//       state.loading = true;
-//     });
-//     builder.addCase(getMissions.fulfilled, (state, action) => {
-//       state.loading = false;
-//       state.missions = action.payload;
-//     });
-//     builder.addCase(getMissions.rejected, (state, action) => {
-//       state.loading = false;
-//       state.missions = [];
-//       state.error = action.error.message;
-//     });
-//   },
-// });
-
-// export default missionsSlice.reducer;
-// export { getMissions };
+export default rocketsSlice.reducer;
+export { getRockets };
