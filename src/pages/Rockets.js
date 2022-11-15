@@ -10,8 +10,10 @@ const Rockets = () => {
   const rockets = useSelector((state) => state.rocketsReducer.rockets);
 
   useEffect(() => {
-    dispatch(getRockets());
-  }, [dispatch]);
+    if (rockets.length === 0) {
+      dispatch(getRockets());
+    }
+  }, [dispatch, rockets]);
 
   const rocketList = rockets.map((rocket) => (
     <Rocket
