@@ -17,5 +17,38 @@
 .missionstatus {
   display: table-cell;
   vertical-align: middle;
-  width: 10vw;
+  width: 12vw;
+}
+
+.profilecontainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.profilediv {
+  width: 40vw;
+  border-radius: 10px;
+}
+
+.profiledivtitle {
+  text-align: start;
+}
+
+.profilesquare {
+  width: 100%;
+  padding: 1rem 1rem 2rem 1rem;
+  border: 1px solid grey;
+  border-bottom-width: 0;
+  text-align: start;
+}
+
+.profilesquare:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.profilesquare:last-of-type {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
