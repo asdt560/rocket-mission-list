@@ -14,7 +14,7 @@ const MyRockets = () => {
 
   return (
     <ul className="reservedRockets-container">
-      {reservedRockets}
+      {reservedRockets.length > 0 ? reservedRockets : 'No reserved rockets'}
     </ul>
   );
 };
