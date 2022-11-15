@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const getRockets = createAsyncThunk('rockets/GetRockets', async () => {
@@ -21,18 +20,21 @@ const rocketsSlice = createSlice({
     error: '',
   },
   extraReducers: (builder) => {
-    builder.addCase(getRockets.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(getRockets.fulfilled, (state, action) => {
-      state.loading = false;
-      state.rockets = action.payload;
-    });
-    builder.addCase(getRockets.rejected, (state, action) => {
-      state.loading = false;
-      state.rockets = [];
-      state.error = action.error.message;
-    });
+    builder.addCase(getRockets.pending, (state) => ({
+      ...state,
+      loading: true,
+    }));
+    builder.addCase(getRockets.fulfilled, (state, action) => ({
+      ...state,
+      loading: false,
+      rockets: action.payload,
+    }));
+    builder.addCase(getRockets.rejected, (state, action) => ({
+      ...state,
+      loading: false,
+      rockets: [],
+      error: action.error.message,
+    }));
   },
 });
 
