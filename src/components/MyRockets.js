@@ -12,7 +12,7 @@ const MyRockets = () => {
   const dispatch = useDispatch();
 
   const reservedRockets = activeRockets.map((rocket) => (
-    <li key={rocket.id} className="reservedRockets-item">
+    <li key={rocket.id} className="profilesquare">
       <p>{rocket.name}</p>
       <ExternalLink href={rocket.wikipedia}>
         <span>Read more</span>

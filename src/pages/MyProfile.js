@@ -18,8 +18,8 @@ const MyProfile = () => {
           </div>
         ))}
       </div>
-      <div>
-        <h2>My Rockets</h2>
+      <div className="profilediv">
+        <h2 className="profiledivtitle">My Rockets</h2>
         <MyRockets />
       </div>
     </div>
