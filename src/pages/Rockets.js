@@ -15,13 +15,15 @@ const Rockets = () => {
     }
   }, [dispatch, rockets]);
 
+  console.log(rockets);
+
   const rocketList = rockets.map((rocket) => (
     <Rocket
       key={rocket.id}
       id={rocket.id}
       name={rocket.name}
       description={rocket.description}
-      images={rocket.images}
+      images={rocket.flickr_images}
       reserved={rocket.reserved}
     />
   ));

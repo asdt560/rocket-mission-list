@@ -3,7 +3,8 @@ a {
 }
 
 header,
-.navbar-links {
+.navbar-links,
+.navbar-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +15,8 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
-.navbar-links {
+.navbar-links,
+.navbar-title {
   gap: 2rem;
 }
 
