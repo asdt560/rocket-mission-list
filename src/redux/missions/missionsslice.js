@@ -10,7 +10,6 @@ const getMissions = createAsyncThunk('missions/GetMissions', async () => {
     wikipedia: mission.wikipedia,
     reserved: false,
   }));
-  console.log(missions);
   return missions;
 });
 
@@ -33,7 +32,6 @@ const missionsSlice = createSlice({
           reserved: !previous,
         };
       });
-      console.log(newState);
       return {
         ...state,
         missions: newState,
