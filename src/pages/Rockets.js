@@ -15,8 +15,6 @@ const Rockets = () => {
     }
   }, [dispatch, rockets]);
 
-  console.log(rockets);
-
   const rocketList = rockets.map((rocket) => (
     <Rocket
       key={rocket.id}
