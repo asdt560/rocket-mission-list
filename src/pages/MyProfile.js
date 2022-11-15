@@ -5,7 +5,7 @@ const MyProfile = () => {
   const missions = useSelector((state) => state.missionsreducer.missions);
   const activemissions = missions.filter((mission) => mission.reserved === true);
   return (
-    <div>
+    <div className="profilecontainer">
       <div>
         <h2>My Missions</h2>
         {activemissions.map((mission) => (
