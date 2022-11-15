@@ -27,6 +27,7 @@
 
 .profilediv {
   width: 40vw;
+  border-radius: 10px;
 }
 
 .profiledivtitle {
@@ -41,6 +42,13 @@
   text-align: start;
 }
 
+.profilesquare:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 .profilesquare:last-of-type {
   border-bottom-width: 1px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
