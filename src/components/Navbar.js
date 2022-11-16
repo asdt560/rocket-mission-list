@@ -6,7 +6,10 @@ import './Navbar.css';
 
 const Navbar = () => (
   <header>
-    <img src={planet} style={{ height: 50, width: 50 }} alt="planet" />
+    <div className="navbar-title">
+      <img src={planet} style={{ height: 50, width: 50 }} alt="planet" />
+      <h1>Space Travelers&apos; Hub</h1>
+    </div>
     <nav>
       <ul className="navbar-links">
         <li>

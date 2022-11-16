@@ -5,3 +5,13 @@
   padding: 0;
   margin: 0;
 }
+
+.reservedRockets-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.reservedRockets-item a {
+  color: blue;
+  padding: 0 0.5rem;
+}
