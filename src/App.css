@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 0 2rem;
+  gap: 10rem;
 }
 
 .missionname {
@@ -67,4 +69,49 @@
 
 .profilespan {
   padding: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+.reservedRockets-container {
+  padding: 0;
+}
+
+/* Navbar section */
+
+a {
+  all: unset;
+}
+
+header,
+.navbar-links,
+.navbar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar-title {
+  gap: 1rem;
+}
+
+.navbar-links {
+  color: #58a6ff;
+}
+
+.navbar-links > li {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+.navbar-links > li:last-child {
+  border-left: 2px solid #000;
+}
+
+.active {
+  text-decoration: underline;
 }
