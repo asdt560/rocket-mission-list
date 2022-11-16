@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { changeMissionStatus } from '../redux/missions/missionsslice';
 
 const MyMissions = () => {
-  const missions = useSelector((state) => state.missionsreducer.missions);
+  const missions = useSelector((state) => state.missionsReducer.missions);
   const activemissions = missions.filter((mission) => mission.reserved === true);
   const dispatch = useDispatch();
   const reservedmissions = activemissions.map((mission) => (

@@ -7,7 +7,7 @@ beforeEach(() => {
 
 describe('redux state tests', () => {
   it('Should initially set state to initial state', () => {
-    const state = store.getState().missionsreducer;
+    const state = store.getState().missionsReducer;
     expect(state).toEqual({
       loading: false,
       missions: [],
@@ -34,8 +34,8 @@ describe('redux state tests', () => {
     expect(result).toEqual(expected);
   });
   it('change mission status', () => {
-    const target = store.getState().missionsreducer.missions[0].reserved;
+    const target = store.getState().missionsReducer.missions[0].reserved;
     store.dispatch(changeMissionStatus('1'));
-    expect(!target).toEqual(store.getState().missionsreducer.missions[0].reserved);
+    expect(!target).toEqual(store.getState().missionsReducer.missions[0].reserved);
   });
 });
