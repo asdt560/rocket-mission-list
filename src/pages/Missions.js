@@ -7,7 +7,7 @@ import { getMissions, changeMissionStatus } from '../redux/missions/missionsslic
 
 const Missions = () => {
   const dispatch = useDispatch();
-  const missions = useSelector((state) => state.missionsreducer.missions);
+  const missions = useSelector((state) => state.missionsReducer.missions);
   if (missions.length === 0) {
     dispatch(getMissions());
   }
