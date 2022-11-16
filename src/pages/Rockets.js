@@ -27,7 +27,7 @@ const Rockets = () => {
   ));
 
   return (
-    <Container className="mx-5 my-3">
+    <Container className="m-3">
       {rocketList}
     </Container>
   );
