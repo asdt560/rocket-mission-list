@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ExternalLink } from 'react-external-link';
-
 import { changeRocketStatus } from '../redux/rockets/rocketsSlice';
 import './MyRockets.css';
 

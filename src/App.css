@@ -35,8 +35,10 @@
 }
 
 .profilesquare {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   border: 1px solid grey;
   border-bottom-width: 0;
   text-align: start;
@@ -51,4 +53,10 @@
   border-bottom-width: 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.link {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
