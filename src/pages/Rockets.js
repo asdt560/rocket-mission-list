@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Container } from 'react-bootstrap';
 
 import Rocket from '../components/Rocket';
 import { getRockets } from '../redux/rockets/rocketsSlice';
-import './Rockets.css';
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -27,9 +27,9 @@ const Rockets = () => {
   ));
 
   return (
-    <ul className="rockets-container">
+    <Container className="mx-5 my-3">
       {rocketList}
-    </ul>
+    </Container>
   );
 };
 
