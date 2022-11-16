@@ -10,23 +10,22 @@ const MyMissions = () => {
   const dispatch = useDispatch();
   const reservedmissions = activemissions.map((mission) => (
     <li key={mission.mission_id} className="profilesquare">
-      <div>
-        <p>{mission.mission_name}</p>
-        <Button
-          size="sm"
-          onClick={() => { dispatch(changeMissionStatus(mission.mission_id)); }}
-        >
-          Leave Mission
-        </Button>
-      </div>
+      <span className="profilespan">{mission.mission_name}</span>
       <ExternalLink className="link" href={mission.wikipedia}>
-        <span>Read more</span>
+        <span className="profilespan">Read more</span>
       </ExternalLink>
+      <Button
+        variant="outline-danger"
+        size="sm"
+        onClick={() => { dispatch(changeMissionStatus(mission.mission_id)); }}
+      >
+        Leave Mission
+      </Button>
     </li>
   ));
 
   return (
-    <ul>
+    <ul className="reservedRockets-container">
       {reservedmissions.length > 0 ? reservedmissions : 'No missions joined'}
     </ul>
   );

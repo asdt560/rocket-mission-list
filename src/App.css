@@ -37,6 +37,7 @@
 .profilesquare {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   padding: 1rem 1rem 1rem 1rem;
   border: 1px solid grey;
@@ -56,7 +57,14 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
   text-decoration: underline;
   color: blue;
   cursor: pointer;
+  text-align: center;
+}
+
+.profilespan {
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
 }

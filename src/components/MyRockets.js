@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ExternalLink } from 'react-external-link';
+import Button from 'react-bootstrap/Button';
 import { changeRocketStatus } from '../redux/rockets/rocketsSlice';
 import './MyRockets.css';
 
@@ -12,17 +13,17 @@ const MyRockets = () => {
 
   const reservedRockets = activeRockets.map((rocket) => (
     <li key={rocket.id} className="profilesquare">
-      <p>{rocket.name}</p>
-      <ExternalLink href={rocket.wikipedia}>
-        <span>Read more</span>
+      <span className="profilespan">{rocket.name}</span>
+      <ExternalLink className="link" href={rocket.wikipedia}>
+        <span className="profilespan">Read more</span>
       </ExternalLink>
-      <button
-        type="button"
-        style={{ height: 30 }}
+      <Button
+        variant="outline-danger"
+        size="sm"
         onClick={() => { dispatch(changeRocketStatus(rocket.id)); }}
       >
         Cancel Reservation
-      </button>
+      </Button>
     </li>
   ));
 
