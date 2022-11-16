@@ -37,7 +37,13 @@ const Rocket = (props) => {
           {reserved && <Badge bg="info" className="me-2">Reserved</Badge>}
           {description}
         </p>
-        <Button type="button" onClick={handleChangeStatus}>{ reserved ? 'Cancel Reservation' : 'Reserve Rocket'}</Button>
+        <Button
+          variant={reserved ? 'outline-dark' : 'primary'}
+          type="button"
+          onClick={handleChangeStatus}
+        >
+          { reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+        </Button>
       </Col>
     </Row>
   );

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ExternalLink } from 'react-external-link';
 import Button from 'react-bootstrap/Button';
 import { changeRocketStatus } from '../redux/rockets/rocketsSlice';
-import './MyRockets.css';
 
 const MyRockets = () => {
   const rockets = useSelector((state) => state.rocketsReducer.rockets);
