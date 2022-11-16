@@ -33,9 +33,14 @@ describe('redux state tests', () => {
     }];
     expect(result).toEqual(expected);
   });
-  it('change mission status', () => {
+  it('change mission status to true', () => {
     const target = store.getState().missionsReducer.missions[0].reserved;
     store.dispatch(changeMissionStatus('1'));
     expect(!target).toEqual(store.getState().missionsReducer.missions[0].reserved);
+  });
+  it('change back to false', () => {
+    const target = store.getState().missionsReducer.missions[0].reserved;
+    store.dispatch(changeMissionStatus('1'));
+    expect(store.getState().missionsReducer.missions[0].reserved).toEqual(!target);
   });
 });

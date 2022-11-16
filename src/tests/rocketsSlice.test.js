@@ -35,9 +35,14 @@ describe('redux state tests', () => {
     }];
     expect(result).toEqual(expected);
   });
-  it('change mission status', () => {
+  it('change rocket status to true', () => {
     const target = store.getState().rocketsReducer.rockets[0].reserved;
     store.dispatch(changeRocketStatus('1'));
     expect(!target).toEqual(store.getState().rocketsReducer.rockets[0].reserved);
+  });
+  it('change back to false', () => {
+    const target = store.getState().rocketsReducer.rockets[0].reserved;
+    store.dispatch(changeRocketStatus('1'));
+    expect(store.getState().rocketsReducer.rockets[0].reserved).toEqual(!target);
   });
 });
