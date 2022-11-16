@@ -13,9 +13,11 @@ Currently unavailable
 
 ## Getting started
 
-Clone the repository, through the `git clone` command or other means. Then install the necessary dependencies using your prefered backage manager, such as npm.
+Clone the repository through the `git clone` command or other means. 
 
-You can then run it with the corresponding start command, for example `npm start`, to open the project in your browser.
+Install the necessary dependencies using your prefered backage manager, such as npm.
+
+Run it with the corresponding start command, for example `npm start`, to open the project in your browser.
 
 ## Authors
 
