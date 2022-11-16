@@ -1,8 +1,8 @@
 import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import missionsReducer from './missions/missionsSlice';
 import rocketsReducer from './rockets/rocketsSlice';
+import missionsReducer from './missions/missionsslice';
 
 const middlewares = [logger, thunk];
 

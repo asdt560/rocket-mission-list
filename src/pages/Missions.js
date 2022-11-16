@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import { getMissions, changeMissionStatus } from '../redux/missions/missionsSlice';
+import { getMissions, changeMissionStatus } from '../redux/missions/missionsslice';
 
 const Missions = () => {
   const dispatch = useDispatch();
