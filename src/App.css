@@ -1,0 +1,129 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.missionname {
+  max-width: 5vw;
+}
+
+.missiondescription {
+  font-size: 15px;
+  font-weight: 500;
+  max-width: 40vw;
+  text-align: left;
+}
+
+.missionreserve,
+.missionstatus {
+  display: table-cell;
+  vertical-align: middle;
+  width: 12vw;
+}
+
+.profilecontainer {
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profilediv {
+  width: 40vw;
+  border-radius: 10px;
+}
+
+.profiledivtitle {
+  text-align: start;
+}
+
+.profilesquare {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
+  border: 1px solid grey;
+  border-bottom-width: 0;
+  text-align: start;
+}
+
+.profilesquare:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.profilesquare:last-of-type {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+  text-align: center;
+}
+
+.profilespan {
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+.reservedRockets-container {
+  padding: 0;
+}
+
+/* Navbar section */
+
+a {
+  all: unset;
+}
+
+header,
+.navbar-links,
+.navbar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.navbar-title {
+  gap: 1rem;
+}
+
+.navbar-links {
+  color: #58a6ff;
+}
+
+.navbar-links > li {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+.navbar-links > li:last-child {
+  border-left: 2px solid #000;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.missionsSection {
+  width: 97%;
+}
+
+.empty {
+  color: transparent;
+}
