@@ -1,6 +1,8 @@
+import fetchMock from 'jest-fetch-mock';
 import store from '../redux/configureStore';
 import { changeRocketStatus, getRockets } from '../redux/rockets/rocketsSlice';
 
+fetchMock.enableMocks();
 beforeEach(() => {
   fetch.resetMocks();
 });

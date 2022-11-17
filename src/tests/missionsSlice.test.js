@@ -1,5 +1,8 @@
+import fetchMock from 'jest-fetch-mock';
 import store from '../redux/configureStore';
 import { changeMissionStatus, getMissions } from '../redux/missions/missionsslice';
+
+fetchMock.enableMocks();
 
 beforeEach(() => {
   fetch.resetMocks();

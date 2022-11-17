@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +8,11 @@ import { getMissions, changeMissionStatus } from '../redux/missions/missionsslic
 const Missions = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer.missions);
-  if (missions.length === 0) {
-    dispatch(getMissions());
-  }
+  useEffect(() => {
+    if (missions.length === 0) {
+      dispatch(getMissions());
+    }
+  });
   const handleClick = (mission) => {
     dispatch(changeMissionStatus(mission));
   };

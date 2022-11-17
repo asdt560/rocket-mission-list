@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import missionsreducer from '../redux/missions/missionsslice';
+import missionsReducer from '../redux/missions/missionsslice';
 import rocketsReducer from '../redux/rockets/rocketsSlice';
 
 const middlewares = [logger, thunk];
@@ -19,7 +19,7 @@ export default function renderWithProviders(
     // Automatically create a store instance if no store was passed in
     store = configureStore({
       reducer: {
-        missionsreducer,
+        missionsReducer,
         rocketsReducer,
       },
     }, applyMiddleware(...middlewares)),
