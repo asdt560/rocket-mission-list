@@ -1,7 +1,15 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
-  margin: 0 2rem;
-  gap: 10rem;
+}
+
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
 }
 
 .missionname {
@@ -23,6 +31,7 @@
 }
 
 .profilecontainer {
+  width: 95%;
   display: flex;
   justify-content: space-around;
 }
@@ -90,11 +99,6 @@ header,
   margin-bottom: 1rem;
 }
 
-header {
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ccc;
-}
-
 .navbar-title {
   gap: 1rem;
 }
@@ -114,4 +118,12 @@ header {
 
 .active {
   text-decoration: underline;
+}
+
+.missionsSection {
+  width: 97%;
+}
+
+.empty {
+  color: transparent;
 }
