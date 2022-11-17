@@ -1,7 +1,8 @@
-import React from "react";
-import { render } from "@testing-library/react";
+import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { render } from '@testing-library/react';
 import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
@@ -10,9 +11,10 @@ import rocketsReducer from '../redux/rockets/rocketsSlice';
 
 const middlewares = [logger, thunk];
 
-export function renderWithProviders(
+export default function renderWithProviders(
   ui,
   {
+    // eslint-disable-next-line no-unused-vars
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
@@ -22,8 +24,9 @@ export function renderWithProviders(
       },
     }, applyMiddleware(...middlewares)),
     ...renderOptions
-  } = {}
+  } = {},
 ) {
+  // eslint-disable-next-line react/prop-types
   function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;
   }

@@ -3,7 +3,7 @@ import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import App from '../App';
-import { renderWithProviders } from '../utils/utils-for-tests';
+import renderWithProviders from '../utils/utils-for-tests';
 
 describe("'My Profile' page ", () => {
   test('renders reserved rockets', async () => {
