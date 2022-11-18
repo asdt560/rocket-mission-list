@@ -30,8 +30,8 @@ Run it with the corresponding start command, for example `npm start`, to open th
 👤 **Camilo Vela**
 
 - GitHub: [@githubhandle](https://github.com/Camilovelag)
-- Twitter:
-- Linkedin:
+- Twitter: [@twitterhandle](https://twitter.com/camilovelag)
+- Linkedin: [LinkedIn](https://www.linkedin.com/in/camilovelag/)
 
 ## 🤝 Contributing
 
